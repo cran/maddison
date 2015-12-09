@@ -1,0 +1,11 @@
+064403d732c11c3215441b6d1ba07c1c *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+660db04b01e3752190c948b32adc01ca *R/data.R
+428e83e0c7d89260822334ec960c5ca5 *README.md
+ee78bfff18073f676bf4706f55eed4ea *build/vignette.rds
+cdee41769670ef2461737f049bdc1967 *data/maddison.rda
+3ed255d37a6acd3ac239ec1a4567459b *inst/doc/maddison_project_database.R
+9eaa7d104b86c9c17fa0534b8c05926b *inst/doc/maddison_project_database.Rmd
+a9617e34c4f4619fa73af8dcb4e28344 *inst/doc/maddison_project_database.html
+e953ea2d6261df67ade968ea6cab5430 *man/maddison.Rd
+2b32c74506070e5ffac78c12034332c6 *vignettes/maddison_project_database.Rmd

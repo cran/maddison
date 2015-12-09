@@ -1,0 +1,22 @@
+Package: maddison
+Type: Package
+Title: Maddison Project Database
+Version: 0.1
+Date: 2015-12-09
+Authors@R: person("Eric", "Persson", email = "expersso5@gmail.com",
+    role = c("aut", "cre"))
+Description: Contains the Maddison Project database, which provides estimates of
+    GDP per capita for all countries in the world between AD 1 and 2010. See
+    http://www.ggdc.net/maddison for more information.
+License: CC0
+LazyData: TRUE
+Depends: R(>= 2.10.0)
+URL: http://www.ggdc.net/maddison https://github.com/expersso/maddison
+Suggests: knitr, rmarkdown, ggplot2
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2015-12-09 13:02:03 UTC; persson
+Author: Eric Persson [aut, cre]
+Maintainer: Eric Persson <expersso5@gmail.com>
+Repository: CRAN
+Date/Publication: 2015-12-09 21:44:32

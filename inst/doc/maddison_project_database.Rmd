@@ -1,0 +1,58 @@
+---
+title: "Maddison Project Dataset"
+author: "Eric Persson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+This package contains the [Maddison Project
+Dataset](http://www.ggdc.net/maddison/maddison-project/data.htm) with estimates
+of GDP per capita for all countries in the world between AD 1 and 2010 in a
+format amenable to analysis in R.
+
+The database was last updated in January 2013.
+
+As per instructions on the Maddison Project website, please site the data as
+follows:
+
+| Purpose | Citation |
+|--------------|---------------|
+| When using the data | The Maddison-Project, <http://www.ggdc.net/maddison/maddison-project/home.htm>, 2013 version.  |
+| When refering to underlying methodology and main results | Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627–651. When using individual country data |
+| When using individual country data | See country-source references in the appendix of Bolt and van Zanden (2014). |
+
+## Example use
+
+```{r, warning=FALSE, message=FALSE}
+library(maddison)
+library(ggplot2)
+
+str(maddison)
+head(maddison)
+```
+
+```{r, fig.width = 6, fig.height = 4, warning=FALSE, message=FALSE}
+df <- subset(maddison, 
+             year >= as.Date("1800-01-01") &
+             iso2c %in% c("DE", "FR", "IT", "UK", "US"))
+
+ggplot(df, aes(x = year, y = gdp_pc, color = country)) +
+  geom_line() +
+  scale_y_log10() +
+  theme_bw() +
+  labs(x = NULL, y = "GDP per capita (1990 Int. GK dollars)\n", color = NULL,
+       title = "GDP per capita (1800-2010)")
+```
+
+## Disclaimer
+
+This package is not affiliated with, nor endorsed by, the Maddison Project. I
+aim to update it whenever the database is updated. If you ever see that it
+is out-of-date, don't hesitate to send a pull request and/or remind me to update
+it.

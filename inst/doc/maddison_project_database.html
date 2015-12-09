@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Eric Persson" />
+
+<meta name="date" content="2015-12-09" />
+
+<title>Maddison Project Dataset</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link href="data:text/css,body%20%7B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20max%2Dwidth%3A%20700px%3B%0A%20%20overflow%3A%20visible%3B%0A%20%20padding%2Dleft%3A%202em%3B%0A%20%20padding%2Dright%3A%202em%3B%0A%20%20font%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E35%3B%0A%7D%0A%0A%23header%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0A%0A%23TOC%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%200%200%2010px%2010px%3B%0A%20%20padding%3A%204px%3B%0A%20%20width%3A%20400px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20border%2Dradius%3A%205px%3B%0A%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%201%2E3%3B%0A%7D%0A%20%20%23TOC%20%2Etoctitle%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%20%20font%2Dsize%3A%2015px%3B%0A%20%20%20%20margin%2Dleft%3A%205px%3B%0A%20%20%7D%0A%0A%20%20%23TOC%20ul%20%7B%0A%20%20%20%20padding%2Dleft%3A%2040px%3B%0A%20%20%20%20margin%2Dleft%3A%20%2D1%2E5em%3B%0A%20%20%20%20margin%2Dtop%3A%205px%3B%0A%20%20%20%20margin%2Dbottom%3A%205px%3B%0A%20%20%7D%0A%20%20%23TOC%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dleft%3A%20%2D2em%3B%0A%20%20%7D%0A%20%20%23TOC%20li%20%7B%0A%20%20%20%20line%2Dheight%3A%2016px%3B%0A%20%20%7D%0A%0Atable%20%7B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20border%2Dstyle%3A%20outset%3B%0A%20%20border%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0A%20%20border%2Dwidth%3A%202px%3B%0A%20%20padding%3A%205px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%20%20line%2Dheight%3A%2018px%3B%0A%20%20padding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0A%20%20border%2Dleft%2Dstyle%3A%20none%3B%0A%20%20border%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Ap%20%7B%0A%20%20margin%3A%200%2E5em%200%3B%0A%7D%0A%0Ablockquote%20%7B%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20padding%3A%200%2E25em%200%2E75em%3B%0A%7D%0A%0Ahr%20%7B%0A%20%20border%2Dstyle%3A%20solid%3B%0A%20%20border%3A%20none%3B%0A%20%20border%2Dtop%3A%201px%20solid%20%23777%3B%0A%20%20margin%3A%2028px%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20margin%2Dleft%3A%200%3B%0A%7D%0A%20%20dl%20dd%20%7B%0A%20%20%20%20margin%2Dbottom%3A%2013px%3B%0A%20%20%20%20margin%2Dleft%3A%2013px%3B%0A%20%20%7D%0A%20%20dl%20dt%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%7D%0A%0Aul%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%7D%0A%20%20ul%20li%20%7B%0A%20%20%20%20list%2Dstyle%3A%20circle%20outside%3B%0A%20%20%7D%0A%20%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dbottom%3A%200%3B%0A%20%20%7D%0A%0Apre%2C%20code%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20color%3A%20%23333%3B%0A%7D%0Apre%20%7B%0A%20%20white%2Dspace%3A%20pre%2Dwrap%3B%20%20%20%20%2F%2A%20Wrap%20long%20lines%20%2A%2F%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20margin%3A%205px%200px%2010px%200px%3B%0A%20%20padding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Acode%20%7B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0A%20%20font%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0A%20%20padding%3A%202px%200px%3B%0A%7D%0A%0Adiv%2Efigure%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0A%20%20background%2Dcolor%3A%20%23FFFFFF%3B%0A%20%20padding%3A%202px%3B%0A%20%20border%3A%201px%20solid%20%23DDDDDD%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20margin%3A%200%205px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20font%2Dsize%3A%2035px%3B%0A%20%20line%2Dheight%3A%2040px%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20padding%2Dbottom%3A%202px%3B%0A%20%20font%2Dsize%3A%20145%25%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20border%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20font%2Dsize%3A%20120%25%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0A%20%20margin%2Dleft%3A%208px%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Ah5%2C%20h6%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Aa%20%7B%0A%20%20color%3A%20%230033dd%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%20%20a%3Ahover%20%7B%0A%20%20%20%20color%3A%20%236666ff%3B%20%7D%0A%20%20a%3Avisited%20%7B%0A%20%20%20%20color%3A%20%23800080%3B%20%7D%0A%20%20a%3Avisited%3Ahover%20%7B%0A%20%20%20%20color%3A%20%23BB00BB%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%0A%2F%2A%20Class%20described%20in%20https%3A%2F%2Fbenjeffrey%2Ecom%2Fposts%2Fpandoc%2Dsyntax%2Dhighlighting%2Dcss%0A%20%20%20Colours%20from%20https%3A%2F%2Fgist%2Egithub%2Ecom%2Frobsimmons%2F1172277%20%2A%2F%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Keyword%20%2A%2F%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%2F%2A%20DataType%20%2A%2F%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%2F%2A%20DecVal%20%28decimal%20values%29%20%2A%2F%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20BaseN%20%2A%2F%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Float%20%2A%2F%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Char%20%2A%2F%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20String%20%2A%2F%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%2F%2A%20Comment%20%2A%2F%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%2F%2A%20OtherToken%20%2A%2F%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20AlertToken%20%2A%2F%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Function%20calls%20%2A%2F%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%2F%2A%20ErrorTok%20%2A%2F%0A%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">Maddison Project Dataset</h1>
+<h4 class="author"><em>Eric Persson</em></h4>
+<h4 class="date"><em>2015-12-09</em></h4>
+</div>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This package contains the <a href="http://www.ggdc.net/maddison/maddison-project/data.htm">Maddison Project Dataset</a> with estimates of GDP per capita for all countries in the world between AD 1 and 2010 in a format amenable to analysis in R.</p>
+<p>The database was last updated in January 2013.</p>
+<p>As per instructions on the Maddison Project website, please site the data as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Purpose</th>
+<th align="left">Citation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">When using the data</td>
+<td align="left">The Maddison-Project, <a href="http://www.ggdc.net/maddison/maddison-project/home.htm" class="uri">http://www.ggdc.net/maddison/maddison-project/home.htm</a>, 2013 version.</td>
+</tr>
+<tr class="even">
+<td align="left">When refering to underlying methodology and main results</td>
+<td align="left">Bolt, J. and J. L. van Zanden (2014). The Maddison Project: collaborative research on historical national accounts. The Economic History Review, 67 (3): 627651. When using individual country data</td>
+</tr>
+<tr class="odd">
+<td align="left">When using individual country data</td>
+<td align="left">See country-source references in the appendix of Bolt and van Zanden (2014).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="example-use" class="section level2">
+<h2>Example use</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maddison)
+<span class="kw">library</span>(ggplot2)
+
+<span class="kw">str</span>(maddison)</code></pre>
+<pre><code>## Classes 'tbl_df', 'tbl' and 'data.frame':    45318 obs. of  9 variables:
+##  $ year            : Date, format: &quot;0001-01-01&quot; &quot;0730-01-01&quot; ...
+##  $ country_original: chr  &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; ...
+##  $ gdp_pc          : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ country         : chr  &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; ...
+##  $ iso2c           : chr  &quot;AT&quot; &quot;AT&quot; &quot;AT&quot; &quot;AT&quot; ...
+##  $ iso3c           : chr  &quot;AUT&quot; &quot;AUT&quot; &quot;AUT&quot; &quot;AUT&quot; ...
+##  $ continent       : chr  &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; &quot;Europe&quot; ...
+##  $ region          : chr  &quot;Western Europe&quot; &quot;Western Europe&quot; &quot;Western Europe&quot; &quot;Western Europe&quot; ...
+##  $ aggregate       : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(maddison)</code></pre>
+<pre><code>## Source: local data frame [6 x 9]
+## 
+##         year country_original gdp_pc country iso2c iso3c continent
+##       (date)            (chr)  (dbl)   (chr) (chr) (chr)     (chr)
+## 1 0001-01-01          Austria     NA Austria    AT   AUT    Europe
+## 2 0730-01-01          Austria     NA Austria    AT   AUT    Europe
+## 3 1000-01-01          Austria     NA Austria    AT   AUT    Europe
+## 4 1150-01-01          Austria     NA Austria    AT   AUT    Europe
+## 5 1280-01-01          Austria     NA Austria    AT   AUT    Europe
+## 6 1300-01-01          Austria     NA Austria    AT   AUT    Europe
+## Variables not shown: region (chr), aggregate (lgl)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">subset</span>(maddison, 
+             year &gt;=<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;1800-01-01&quot;</span>) &amp;
+<span class="st">             </span>iso2c %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;DE&quot;</span>, <span class="st">&quot;FR&quot;</span>, <span class="st">&quot;IT&quot;</span>, <span class="st">&quot;UK&quot;</span>, <span class="st">&quot;US&quot;</span>))
+
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> gdp_pc, <span class="dt">color =</span> country)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">scale_y_log10</span>() +
+<span class="st">  </span><span class="kw">theme_bw</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;GDP per capita (1990 Int. GK dollars)</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">color =</span> <span class="ot">NULL</span>,
+       <span class="dt">title =</span> <span class="st">&quot;GDP per capita (1800-2010)&quot;</span>)</code></pre>
+<p><img src="data:image/png;base64,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" /></p>
+</div>
+<div id="disclaimer" class="section level2">
+<h2>Disclaimer</h2>
+<p>This package is not affiliated with, nor endorsed by, the Maddison Project. I aim to update it whenever the database is updated. If you ever see that it is out-of-date, don’t hesitate to send a pull request and/or remind me to update it.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
